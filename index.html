@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1.soru
+
+        let url="https://www.wissenakademie.com";
+        let dersAdi="Fullstack Web Developer Eğitimi";
+        console.log(url.length);
+        console.log(url.startsWith("https"));
+        console.log(dersAdi.includes("Eğitimi"))
+        let metin = dersAdi.toLowerCase().replace(/ /g, "-").replace("ğ","g")
+        console.log(url+"/"+metin);
+
+        // 2.soru 
+        let meyveler=["elma","armut","muz","çilek"];
+        console.log(meyveler.length);
+        console.log(meyveler[0]);
+        console.log(meyveler[meyveler.length - 1]);
+        console.log(meyveler.includes("elma"));
+        meyveler.push("kiraz");
+        console.log(meyveler);
+        meyveler.splice(meyveler.length-2,2);
+        console.log(meyveler);
+
+        //3. soru
+
+        let siparisListesi = [
+        {
+          siparisId:101,
+          siparisTarihi:"31.12.2022 ",
+          odemeSekli:" kredi kartı ",
+          kargoAdresi:"Yahya kaptan mah. Kocaeli İzmit",
+          ürünId:5,
+          urunBasligi:"IPhone 13 Pro",
+          urunUrl:"http://abc.com/iphone-13-pro ",
+          urunFiyati:22000,
+          musteriId:12,
+          firmaId:34
+        },
+
+        {
+            siparisId:102,
+            siparisTarihi:"30.12.2022 ",
+            odemeSekli:" kredi kartı ",
+            kargoAdresi:"Yahya kaptan mah. Kocaeli İzmit",
+            ürünId:6,
+            urunBasligi:"IPhone 13 Pro Max",
+            urunUrl:"http://abc.com/iphone-13-pro-max ",
+            urunFiyati:25000,
+            musteriId:12,
+            firmaId:34
+          },
+        
+        ] 
+        
+        let kdv = 0.18;
+
+        for (let i=0; i<siparisListesi.length; i++){
+            console.log(`${siparisListesi[i].siparisTarihi} tarihinde ${siparisListesi[i].urunBasligi} toplam ${siparisListesi[i].urunFiyati*kdv+siparisListesi[i].urunFiyati} tl ye satılmıştır. `);
+        }
+
+        // 4. soru
+
+        let sayilar = [1,5,7,15,3,25,12,24];
+
+        
+        for (let i=0; i<sayilar.length; i++){
+           console.log(Math.pow(sayilar[i],2));
+        }
+        for (let i=0; i<sayilar.length; i++){
+            if (sayilar[i]%5==0){
+                console.log(sayilar[i]+" 5'in katıdır.");
+               }
+        }
+        let toplam = 0;
+        for (let i=0; i<sayilar.length; i++){
+           if(sayilar[i]%2==0){
+            toplam+=sayilar[i];
+
+           }
+           console.log(toplam);
+           
+        }
+
+        //4.soru
+        let urunler = ["iphone 12","samsung s22","iphone 13","samsung s23","samsung s20"];
+        let toplam1 = 0;
+        for(let i=0; i < urunler.length; i++){
+           console.log(urunler[i].toUpperCase());
+           if(urunler[i].includes("samsung")){
+            toplam1 = toplam1+1
+
+            
+           }
+
+        }
+        console.log(`Samsung kelimesi ${toplam1} kere geçmektedir.`);
+
+        //5.soru
+        let ogrenciler = [ {"ad":"yiğit", "soyad": "bilgi", "notlar": [60,70,60]}, {"ad":"ada", "soyad": "bilgi", "notlar": [80,70,80]}, {"ad":"çınar", "soyad": "turan", "notlar": [10,20,60]} ];
+        let genelOrtalama =0;
+        for(let i=0; i<ogrenciler.length; i++){
+            let toplam2 =0;
+            for(let j=0; j <ogrenciler[i].notlar.length; j++){
+            toplam2+=ogrenciler[i].notlar[j];
+
+            }
+            let ortalama = toplam2/ogrenciler[i].notlar.length;
+            genelOrtalama+= ortalama;
+            if(ortalama>= 50){
+                console.log(`${ogrenciler[i].ad} not ortalaması ${ortalama.toFixed(2)} dır. Başarılıdır....`);
+            }
+            else{
+                console.log(`${ogrenciler[i].ad} not ortalaması ${ortalama.toFixed(2)} dır. Başarısızdır....`);
+            }
+
+
+        }
+        console.log(`Öğrencilerimizin genel not ortalamsı ${(genelOrtalama/ogrenciler.length).toFixed(2)} dır.`);
+
+        //5.soru
+        function yazdir (kelime,sayi){
+            for(let i=0;i<sayi;i++){
+                console.log(kelime);
+            }
+
+        }
+        //let girilenKelime = prompt("bir kelime giriniz:");
+       // let girilenSayi = prompt("Kaç kez yazmasını istersiniz?")
+
+        //yazdir(girilenKelime,girilenSayi);
+        //6.soru
+
+        //let kisaKenar = prompt("Kısa Kenar Uzunluğunu Yazınız:");
+        //let uzunKenar = prompt("Uzun Kenar Uzunluğunu Yazınız:");
+        function alanHesapla(kenar1,kenar2){
+        return  kenar1*kenar2
+        }
+        function cevreHesapla(kenar1,kenar2){
+            return (kenar1+kenar2)*2
+        }
+        //console.log(` Kenar uzunlukları verilen dikdörtgenin çevresi ${cevreHesapla(kisaKenar,uzunKenar)} birimdir, alanı ise ${alanHesapla(kisaKenar,uzunKenar)} birimdir `);
+
+        //7.soru
+        function yaziTura(){
+           let sonuc = Math.round(Math.random());
+           console.log(sonuc);
+           if(sonuc){
+            console.log("yazı");
+           }
+           else{console.log("tura");}
+        }
+        yaziTura();
+        
+        //8.soru
+        let bölenDizisi = [];
+        function bölenBulma(sayi){
+            for(let i=1; i<sayi; i++){
+            if(sayi%i==0){
+                bölenDizisi.push(i);
+            }
+        }
+            return bölenDizisi;
+
+        }
+        console.log(bölenBulma(13));
+
+        //9.soru
+        let result= 1;
+        function carpim(){
+            for(let i=0; i<arguments.length;i++){
+             result  = result*arguments[i];
+            }
+            return result;
+        }
+        console.log(carpim(10,2,4,5,6,7,8,9));
+
+        //10.soru
+        let cümle = prompt("Bir cümle giriniz.");
+        let duzCumle= ""
+        function harfDüzenleme(metin){
+           let kelimeDizisi= metin.split(" ")
+
+            for(let i=0;i<kelimeDizisi.length;i++){
+                
+                
+                
+                let duzMetin = (kelimeDizisi[i][0]).toUpperCase() +  kelimeDizisi[i].slice(1).toLowerCase()+ " ";
+
+                duzCumle= duzCumle + duzMetin;
+              
+            }
+
+            return duzCumle;
+
+            
+
+        }
+        console.log(harfDüzenleme(cümle));
+ 
+
+        
+      
+      
+
+        
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
